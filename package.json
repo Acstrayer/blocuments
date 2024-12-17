@@ -1,23 +1,5 @@
 {
-  "name": "ezsheets",
-  "version": "1.0.0",
-  "description": "Lightweight spreadsheet formatted document viewer; scripting in either python or js",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Acstrayer/ezsheets.git"
-  },
-  "author": "Absentbird, ACStrayer",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Acstrayer/ezsheets/issues"
-  },
-  "homepage": "https://github.com/Acstrayer/ezsheets#readme",
   "devDependencies": {
-    "electron": "^33.2.1"
+    "web-vitals": "^4.2.4"
   }
 }
