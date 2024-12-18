@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+main {
+  background-color: #282c34;
+  padding-bottom: 40px;
+}
+main .Spreadsheet {
+  background-color: #282c34;
+}

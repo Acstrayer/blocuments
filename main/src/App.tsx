@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import Example from './components/spreadsheet'
 import './App.css';
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <main>
+        <Example />
+      </main>
     </div>
   );
 }
