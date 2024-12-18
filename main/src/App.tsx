@@ -1,9 +1,17 @@
-import React from 'react';
+import { useState } from 'react';
 import logo from './logo.svg';
-import Example from './components/spreadsheet'
+import SheetBloc from './components/spreadsheet'
 import './App.css';
 
 function App() {
+  const spreadsheetData = [
+    [{ value: "" }, { value: "" }],
+    [{ value: "" }, { value: "" }],
+  ];
+  const [sheets, setSheets] = useState([<SheetBloc cells={spreadsheetData} dark />]);
+  const addSheet = () => {
+    setSheets([...sheets, <SheetBloc cells={spreadsheetData} dark />]);
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -21,7 +29,8 @@ function App() {
         </a>
       </header>
       <main>
-        <Example />
+        {sheets}
+        <button onClick={addSheet}>Add Sheet Bloc</button>
       </main>
     </div>
   );
