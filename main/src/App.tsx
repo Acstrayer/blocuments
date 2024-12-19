@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import logo from './logo.svg';
 import SheetBloc from './components/spreadsheet'
 import './App.css';
 
 function App() {
-  for (let i = 0; i < 24; i++) {
-    let n = i.toString;
-    let row = <div className="Guide rowGuides" style={"gridArea: 1 / 1 / 1 / -1"}></div>
+  let rowGuides: JSX.Element[] = [];
+  for (let i = 1; i <= 31; i++) {
+    let n = i.toString();
+    rowGuides.push(<div className="Guide rowGuide" style={{gridArea: n+" / 1 / "+n+" / -1"}}></div>);
   }
-
-  const rowGuides = Array(31).fill(<div className="Guide colGuides"></div>);
-  const colGuides = Array(24).fill(<div className="Guide rowGuides"></div>);
-
+  let colGuides: JSX.Element[] = [];
+  for (let i = 1; i <= 24; i++) {
+    let n = i.toString();
+    colGuides.push(<div className="Guide colGuide" style={{gridArea: "1 / "+n+" / -1 / "+n}}></div>);
+  }
   const spreadsheetData = [
     [{ value: "" }, { value: "" }],
     [{ value: "" }, { value: "" }],

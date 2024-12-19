@@ -67,6 +67,7 @@ main .Spreadsheet {
   grid-row-end: -1;
   grid-template-rows: repeat(var(--num-rows), minmax(var(--row-height), auto));
   grid-template-columns: repeat(var(--num-cols), minmax(var(--col-width), auto));
+  margin-bottom: 40px;
 }
 
 #Grid div{
@@ -79,12 +80,12 @@ main .Spreadsheet {
   left: 0px;
 }
 
-#Grid .rowGuides {
+#Grid .rowGuide {
   width: 100%;
   height: var(--row-height);
 }
 
-#Grid .colGuides {
+#Grid .colGuide {
   height: 100%;
   width: var(--col-width);
 }
