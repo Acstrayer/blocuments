@@ -1,3 +1,11 @@
+/* GLOBAL VARIABLES */
+body {
+--num-rows: 22;
+--row-height: .5in; 
+--num-cols: 17;
+--col-width: .5in; 
+}
+
 .App {
   text-align: center;
 }
@@ -37,6 +45,7 @@
   }
 }
 
+
 main {
   background-color: #282c34;
   padding-bottom: 40px;
@@ -44,3 +53,45 @@ main {
 main .Spreadsheet {
   background-color: #282c34;
 }
+
+/*** GRID ***/
+
+#Grid {
+  display: grid;
+  position: relative;
+  margin: auto;
+  width: 95%;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: -1;
+  grid-template-rows: repeat(var(--num-rows), minmax(var(--row-height), auto));
+  grid-template-columns: repeat(var(--num-cols), minmax(var(--col-width), auto));
+}
+
+#Grid div{
+  border: .2px solid white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
