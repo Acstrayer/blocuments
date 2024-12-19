@@ -4,85 +4,40 @@ import SheetBloc from './components/spreadsheet'
 import './App.css';
 
 function App() {
+  for (let i = 0; i < 24; i++) {
+    let n = i.toString;
+    let row = <div className="Guide rowGuides" style={"gridArea: 1 / 1 / 1 / -1"}></div>
+  }
+
+  const rowGuides = Array(31).fill(<div className="Guide colGuides"></div>);
+  const colGuides = Array(24).fill(<div className="Guide rowGuides"></div>);
+
   const spreadsheetData = [
     [{ value: "" }, { value: "" }],
     [{ value: "" }, { value: "" }],
   ];
   const [sheets, setSheets] = useState([<SheetBloc cells={spreadsheetData} dark />]);
-  const addSheet = () => {
+  const addSheetBloc = () => {
     setSheets([...sheets, <SheetBloc cells={spreadsheetData} dark />]);
   }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
       <main>
         <section id="Grid">
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <div></div><div></div><div></div><div></div><div></div><div></div>
+          {rowGuides}
+          {colGuides}
         </section>
 
         {sheets}
-        <button onClick={addSheet}>Add Sheet Bloc</button>
+        <section id="ToolBar">
+        <button onClick={addSheetBloc}>Add Sheet Bloc</button>
+        {/*
+        <button onClick={addTextBloc}>Add Text Bloc</button>
+        <button onClick={addImageBloc}>Add Image Bloc</button>
+        */}
+        </section>
       </main>
     </div>
   );

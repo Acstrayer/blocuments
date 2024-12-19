@@ -1,9 +1,9 @@
 /* GLOBAL VARIABLES */
 body {
---num-rows: 22;
---row-height: .5in; 
---num-cols: 17;
---col-width: .5in; 
+--num-rows: 31;
+--row-height: 35px; 
+--num-cols: 24;
+--col-width: 35px; 
 }
 
 .App {
@@ -23,7 +23,7 @@ body {
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +60,7 @@ main .Spreadsheet {
   display: grid;
   position: relative;
   margin: auto;
-  width: 95%;
+  width: 8.5in;
   grid-column-start: 1;
   grid-column-end: -1;
   grid-row-start: 1;
@@ -71,6 +71,22 @@ main .Spreadsheet {
 
 #Grid div{
   border: .2px solid white;
+}
+
+#Grid .Guide {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#Grid .rowGuides {
+  width: 100%;
+  height: var(--row-height);
+}
+
+#Grid .colGuides {
+  height: 100%;
+  width: var(--col-width);
 }
 
 
