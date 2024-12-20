@@ -45,6 +45,9 @@ body {
   }
 }
 
+.sheetbloc {
+  z-index: 3;
+}
 
 main {
   background-color: #282c34;
@@ -85,7 +88,6 @@ main .Spreadsheet {
 #Grid .rowGuide {
   width: 100%;
   height: var(--row-height);
-  z-index: 2;
 }
 
 #Grid .colGuide {
@@ -93,25 +95,15 @@ main .Spreadsheet {
   width: var(--col-width);
 }
 
+.bloc {
+    position: relative;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.dragHandle {
+    background-color: #c3c3c3;
+    width: 200px;
+    margin: auto;
+    padding: 4px;
+    border: 1 px solid transparent;
+    border-radius: 14px;
+}

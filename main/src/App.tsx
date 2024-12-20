@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import SheetBloc from './components/sheetBloc'
 import GridBloc from './components/gridBloc'
@@ -20,7 +21,6 @@ function App() {
       <main>
         <GridBloc x={24} y={31} />
         {sheets}
-
         <section id="ToolBar">
           <button onClick={addSheetBloc}>Add Sheet Bloc</button>
           {/*

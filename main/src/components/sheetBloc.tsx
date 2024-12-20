@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Spreadsheet from "react-spreadsheet";
+import Bloc from './bloc'
 
 interface CellProps {
     cells: any[][];
@@ -15,11 +16,11 @@ export default function SheetBloc(props: CellProps) {
     setCells([[...cells[0], {}], ...cells.slice(1)]);
   }
   return (
-    <div className="spreadsheet">
-      <Spreadsheet data={cells} darkMode={props.dark} onChange={setCells} />
-      <button onClick={addCol}>Add Column</button>
-      <br />
-      <button onClick={addRow}>Add Row</button>
-    </div>
+      <Bloc>
+        <Spreadsheet data={cells} darkMode={props.dark} onChange={setCells} />
+        <button onClick={addCol}>Add Column</button>
+        <br />
+        <button onClick={addRow}>Add Row</button>
+      </Bloc>
   );
 }

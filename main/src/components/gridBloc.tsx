@@ -1,4 +1,4 @@
-import react, { useState, CSSProperties } from 'react';
+import { useState, CSSProperties } from 'react';
 
 
 interface GridProps {
@@ -29,7 +29,7 @@ export default function GridBloc(props: GridProps) {
       rowGuides.push(<div className="Guide rowGuide" style={{gridArea: n+" / 2 / "+n+" / -1"}}>
         <svg xmlns="http://www.w3.org/2000/svg" style={{height: "100%", width: "100%", position: "relative", left: "-3px", top: "-3px"}}>
           <defs>
-            <pattern id="dots" height="10px" width="4.1666666666%">
+            <pattern id="dots" height="100%" width="4.16666%">
               <circle cx="3" cy="3" r="3px" fill="#999999A1"/>
             </pattern>
           </defs>
