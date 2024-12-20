@@ -1,11 +1,12 @@
-import { useState, CSSProperties } from 'react';
+import { createContext, useContext, useState, CSSProperties } from 'react';
 
 
-interface GridProps {
+type GridProps = {
     dark?: boolean,
     x: number,
     y: number,
-    density?: number
+    density?: number,
+    children: JSX.Element[]
 }
 
 export interface GridCSS extends CSSProperties {
@@ -55,13 +56,15 @@ export default function GridBloc(props: GridProps) {
   }
 
   return (
-    <div> 
-    <section id="Grid" style={{ "--num-rows": rows, "--num-cols": cols } as GridCSS}>
-      {rowGuides}
-      {colGuides}
-    </section>
-    <button onClick={addRow}>Add Row</button>
-    <button onClick={addCol}>Add Column</button>
+    <div>  
+      <section id="Grid" style={{ "--num-rows": rows, "--num-cols": cols } as GridCSS}>
+        {props.children}
+        {rowGuides}
+        {colGuides}
+        
+      </section>
+      <button onClick={addRow}>Add Row</button>
+      <button onClick={addCol}>Add Column</button>
     </div>
 
   );

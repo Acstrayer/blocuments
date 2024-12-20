@@ -74,8 +74,12 @@ main .Spreadsheet {
   background-color: #e3dac9;
 }
 
-#Grid div{
-  border: .2px solid white;
+#Grid .bloc {
+  border: 1px solid transparent;
+}
+
+#Grid .bloc:hover {
+  border: 1px solid white;
 }
 
 #Grid .Guide {
@@ -97,6 +101,7 @@ main .Spreadsheet {
 
 .bloc {
     position: relative;
+    z-index: 100;
 }
 
 .dragHandle {

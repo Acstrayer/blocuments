@@ -19,8 +19,9 @@ function App() {
       <header className="App-header">
       </header>
       <main>
-        <GridBloc x={24} y={31} />
-        {sheets}
+        <GridBloc x={24} y={31}>
+          {sheets}
+        </GridBloc>
         <section id="ToolBar">
           <button onClick={addSheetBloc}>Add Sheet Bloc</button>
           {/*
