@@ -60,7 +60,7 @@ main .Spreadsheet {
   display: grid;
   position: relative;
   margin: auto;
-  width: 8.5in;
+  width: 840px;
   grid-column-start: 1;
   grid-column-end: -1;
   grid-row-start: 1;
@@ -68,6 +68,7 @@ main .Spreadsheet {
   grid-template-rows: repeat(var(--num-rows), minmax(var(--row-height), auto));
   grid-template-columns: repeat(var(--num-cols), minmax(var(--col-width), auto));
   margin-bottom: 40px;
+  background-color: #e3dac9;
 }
 
 #Grid div{
@@ -78,11 +79,13 @@ main .Spreadsheet {
   position: absolute;
   top: 0px;
   left: 0px;
+  border: none;
 }
 
 #Grid .rowGuide {
   width: 100%;
   height: var(--row-height);
+  z-index: 2;
 }
 
 #Grid .colGuide {
