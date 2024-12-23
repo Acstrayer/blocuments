@@ -56,17 +56,9 @@ export default function GridBloc(props: GridProps) {
     setCols(cols+1);
   }
 
-  const blocDrag = (e: any) => {
-    props.children.forEach((bloc) => {
-      if (bloc.isDragging) {
-        bloc.dragging(e);
-      }
-    })
-  }
-
   return (
     <div>  
-      <section id="Grid" onMouseMove={blocDrag} style={{ "--num-rows": rows, "--num-cols": cols } as GridCSS}>
+      <section id="Grid" style={{ "--num-rows": rows, "--num-cols": cols } as GridCSS}>
         {props.children}
         {rowGuides}
         {colGuides}
