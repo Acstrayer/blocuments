@@ -23,7 +23,6 @@ export default function Bloc(props: BlocProps) {
                         e.currentTarget.parentElement.parentElement.getBoundingClientRect().top;
     setDiffX(e.screenX - currentLeft);
     setDiffY(e.screenY - currentTop);
-    document.addEventListener("mousemove", e.currentTarget.onMouseMove);
     setIsDragging(true);
   };
   //Rerender and position wrapped, dragged object while dragging on cursor

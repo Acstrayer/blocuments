@@ -17,6 +17,7 @@ export interface GridCSS extends CSSProperties {
 export default function GridBloc(props: GridProps) {
   const [rows, setRows] = useState(props.y);
   const [cols, setCols] = useState(props.x);
+  const [dragging, setDragging] = useState<number[]>([]);
   //Instantiate grid guide arrays
   let rowGuides: JSX.Element[] = [];
   let colGuides: JSX.Element[] = [];
@@ -55,13 +56,20 @@ export default function GridBloc(props: GridProps) {
     setCols(cols+1);
   }
 
+  const blocDrag = (e: any) => {
+    props.children.forEach((bloc) => {
+      if (bloc.isDragging) {
+        bloc.dragging(e);
+      }
+    })
+  }
+
   return (
     <div>  
-      <section id="Grid" style={{ "--num-rows": rows, "--num-cols": cols } as GridCSS}>
+      <section id="Grid" onMouseMove={blocDrag} style={{ "--num-rows": rows, "--num-cols": cols } as GridCSS}>
         {props.children}
         {rowGuides}
         {colGuides}
-        
       </section>
       <button onClick={addRow}>Add Row</button>
       <button onClick={addCol}>Add Column</button>
