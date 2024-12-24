@@ -76,10 +76,17 @@ main .Spreadsheet {
 
 #Grid .bloc {
   border: 1px solid transparent;
+  position: relative;
 }
 
 #Grid .bloc:hover {
   border: 1px solid white;
+}
+
+#Grid .bloc.dragging {
+  position: absolute;
+  opacity: 75%;
+  z-index: 50;
 }
 
 #Grid .Guide {
@@ -101,7 +108,7 @@ main .Spreadsheet {
 
 .bloc {
     position: relative;
-    z-index: 100;
+    z-index: 5;
 }
 
 .dragHandle {

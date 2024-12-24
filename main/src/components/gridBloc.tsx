@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, CSSProperties } from 'react';
+import { createContext, useState, CSSProperties } from 'react';
+import { GridContext } from "../context/GridContext"
 
 
 type GridProps = {
@@ -15,9 +16,15 @@ export interface GridCSS extends CSSProperties {
 }
 
 export default function GridBloc(props: GridProps) {
+  //TO DO: MAKE DYNAMIC
+  const panelWidth: number = 840;
+  const scale: number = panelWidth/props.x;
+  //Variables
+
+  //States
   const [rows, setRows] = useState(props.y);
   const [cols, setCols] = useState(props.x);
-  const [dragging, setDragging] = useState<number[]>([]);
+  const [gridScale, setGridScale] = useState(scale);
   //Instantiate grid guide arrays
   let rowGuides: JSX.Element[] = [];
   let colGuides: JSX.Element[] = [];
@@ -31,7 +38,7 @@ export default function GridBloc(props: GridProps) {
       rowGuides.push(<div className="Guide rowGuide" style={{gridArea: n+" / 2 / "+n+" / -1"}}>
         <svg xmlns="http://www.w3.org/2000/svg" style={{height: "100%", width: "100%", position: "relative", left: "-3px", top: "-3px"}}>
           <defs>
-            <pattern id="dots" height="100%" width="4.16666%">
+            <pattern id="dots" height="100%" width={(scale*100/(panelWidth-scale)).toString()+"%"}>
               <circle cx="3" cy="3" r="3px" fill="#999999A1"/>
             </pattern>
           </defs>
@@ -59,9 +66,13 @@ export default function GridBloc(props: GridProps) {
   return (
     <div>  
       <section id="Grid" style={{ "--num-rows": rows, "--num-cols": cols } as GridCSS}>
-        {props.children}
         {rowGuides}
         {colGuides}
+
+        <GridContext.Provider value={gridScale}>
+          {props.children}
+        </GridContext.Provider>
+
       </section>
       <button onClick={addRow}>Add Row</button>
       <button onClick={addCol}>Add Column</button>
