@@ -1,9 +1,9 @@
 /* GLOBAL VARIABLES */
 body {
---num-rows: 31;
---row-height: 35px; 
---num-cols: 24;
---col-width: 35px; 
+  --num-rows: 31;
+  --row-height: 35px;
+  --num-cols: 24;
+  --col-width: 35px;
 }
 
 .App {
@@ -69,7 +69,10 @@ main .Spreadsheet {
   grid-row-start: 1;
   grid-row-end: -1;
   grid-template-rows: repeat(var(--num-rows), minmax(var(--row-height), auto));
-  grid-template-columns: repeat(var(--num-cols), minmax(var(--col-width), auto));
+  grid-template-columns: repeat(
+    var(--num-cols),
+    minmax(var(--col-width), auto)
+  );
   margin-bottom: 40px;
   background-color: #e3dac9;
 }
@@ -107,15 +110,15 @@ main .Spreadsheet {
 }
 
 .bloc {
-    position: relative;
-    z-index: 5;
+  position: relative;
+  z-index: 5;
 }
 
 .dragHandle {
-    background-color: #c3c3c3;
-    width: 200px;
-    margin: auto;
-    padding: 4px;
-    border: 1 px solid transparent;
-    border-radius: 14px;
+  background-color: #c3c3c3;
+  width: 200px;
+  margin: auto;
+  padding: 4px;
+  border: 1 px solid transparent;
+  border-radius: 14px;
 }
