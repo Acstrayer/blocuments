@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import { GridContext } from "../context/GridContext";
 
 type BlocProps = {
-  children: JSX.Element[];
+  children: JSX.Element|JSX.Element[];
 };
 
 type Coordinates = {
@@ -107,7 +107,7 @@ export default function Bloc(props: BlocProps) {
       document.removeEventListener("mousemove", dragging);
       document.removeEventListener("mouseup", dragEnd);
     };
-  }, []);
+  });
 
   document.addEventListener("mousemove", dragging);
 

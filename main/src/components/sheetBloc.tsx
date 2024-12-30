@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Spreadsheet from "react-spreadsheet";
-import Bloc from "./bloc";
+import Bloc from "../components/bloc";
 
 interface CellProps {
   cells: any[][];

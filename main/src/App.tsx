@@ -1,35 +1,26 @@
 import React from "react";
 import { useState } from "react";
-import SheetBloc from "./components/sheetBloc";
 import GridBloc from "./components/gridBloc";
+import Toolbar from "./components/toolbar";
+
 import "./App.css";
 
 function App() {
-  const spreadsheetData = [
-    [{ value: "" }, { value: "" }],
-    [{ value: "" }, { value: "" }],
-  ];
-  const [sheets, setSheets] = useState([
-    <SheetBloc cells={spreadsheetData} dark />,
-  ]);
-  const addSheetBloc = () => {
-    setSheets([...sheets, <SheetBloc cells={spreadsheetData} dark />]);
-  };
+  const gridElements: JSX.Element[] = [];
+  const [blocs, setBlocs] = useState(gridElements);
+
+  const addBloc = (element : JSX.Element) => {
+    setBlocs([...blocs, element]);
+  }
 
   return (
     <div className="App">
       <header className="App-header"></header>
       <main>
+        <Toolbar addBloc={addBloc}/>
         <GridBloc x={24} y={31}>
-          {sheets}
+          {blocs}
         </GridBloc>
-        <section id="ToolBar">
-          <button onClick={addSheetBloc}>Add Sheet Bloc</button>
-          {/*
-          <button onClick={addTextBloc}>Add Text Bloc</button>
-          <button onClick={addImageBloc}>Add Image Bloc</button>
-          */}
-        </section>
       </main>
     </div>
   );

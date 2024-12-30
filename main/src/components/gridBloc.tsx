@@ -1,4 +1,4 @@
-import { createContext, useState, CSSProperties } from "react";
+import { useState, CSSProperties } from "react";
 import { GridContext } from "../context/GridContext";
 
 type GridProps = {
