@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import { GridContext } from "../context/GridContext";
 
 type BlocProps = {
-  children: JSX.Element|JSX.Element[];
+  children: JSX.Element | JSX.Element[];
 };
 
 type Coordinates = {
@@ -72,21 +72,21 @@ export default function Bloc(props: BlocProps) {
     const rowsHigh = Math.ceil((rect?.height || 0) / scale);
     setGridPos(
       snapTop.toString() +
-        " / " +
-        snapLeft.toString() +
-        " / " +
-        (snapTop + rowsHigh).toString() +
-        " / " +
-        (snapLeft + colsWide).toString()
+      " / " +
+      snapLeft.toString() +
+      " / " +
+      (snapTop + rowsHigh).toString() +
+      " / " +
+      (snapLeft + colsWide).toString()
     );
     console.log(
       snapTop.toString() +
-        " / " +
-        snapLeft.toString() +
-        " / " +
-        (snapTop + rowsHigh).toString() +
-        " / " +
-        (snapLeft + colsWide).toString()
+      " / " +
+      snapLeft.toString() +
+      " / " +
+      (snapTop + rowsHigh).toString() +
+      " / " +
+      (snapLeft + colsWide).toString()
     );
     setIsDragging(false);
   };
@@ -117,11 +117,11 @@ export default function Bloc(props: BlocProps) {
       style={
         isDragging
           ? {
-              left: coords.left,
-              top: coords.top,
-              width: size.width,
-              height: size.height,
-            }
+            left: coords.left,
+            top: coords.top,
+            width: size.width,
+            height: size.height,
+          }
           : { gridArea: gridPos }
       }
       ref={nodeRef}
