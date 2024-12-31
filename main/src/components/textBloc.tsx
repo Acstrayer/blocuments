@@ -1,25 +1,17 @@
+import { EditorContent, useEditor } from "@tiptap/react";
 import { useState } from "react";
+import TextEditor from "../components/textEditor";
 import Bloc from "../components/bloc";
-import { EditorProvider, FloatingMenu, BubbleMenu } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
 
-interface txtProps {
-  text?: String
+interface textBlocProps {
+  editor: any;
 }
 
-const extensions = [StarterKit];
-
-
-
-export default function TextBloc(props: txtProps) {
-  const [text, setText] = useState("hello world");
-
+export default function TextBloc(props: textBlocProps) {
+  const editor = props.editor;
   return (
     <Bloc>
-        <EditorProvider extensions={extensions} content={text}>
-            <FloatingMenu editor={null}>This is the floating menu</FloatingMenu>
-            <BubbleMenu editor={null}>This is the bubble menu</BubbleMenu>
-        </EditorProvider>
+      <EditorContent editor={editor} />
     </Bloc>
   );
 }
