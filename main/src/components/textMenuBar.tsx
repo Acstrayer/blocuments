@@ -1,15 +1,15 @@
-interface textEditorProps {
+interface textMenuBarProps {
   editor: any;
 }
 
-export default function TextEditor(props: textEditorProps) {
+export default function TextMenuBar(props: textMenuBarProps) {
   const editor = props.editor;
   if (!editor) {
     return null;
   }
 
   return (
-    <div className="control-group">
+    <div className={"control-group-active"}>
       <div className="button-group">
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import GridBloc from "./components/gridBloc";
 import Toolbar from "./components/toolbar";
-import TextEditor from "./components/textEditor";
+import TextMenuBar from "./components/textMenuBar";
 import StarterKit from "@tiptap/starter-kit";
 import { EditorContent, useEditor } from "@tiptap/react";
 
@@ -16,22 +16,11 @@ function App() {
     setBlocs([...blocs, element]);
   };
 
-  const editor = useEditor({
-    extensions: [StarterKit],
-    content: "",
-    editorProps: {
-      attributes: {
-        spellcheck: "false",
-      },
-    },
-  });
-
   return (
     <div className="App">
       <header className="App-header"></header>
       <main>
-        <Toolbar addBloc={addBloc} editor={editor} />
-        <TextEditor editor={editor} />
+        <Toolbar addBloc={addBloc} />
         <GridBloc x={24} y={31}>
           {blocs}
         </GridBloc>

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import { GridContext } from "../context/GridContext";
 
 type BlocProps = {
-  children: JSX.Element|JSX.Element[];
+  children: JSX.Element | JSX.Element[];
 };
 
 type Coordinates = {
@@ -77,7 +77,7 @@ export default function Bloc(props: BlocProps) {
         " / " +
         (snapTop + rowsHigh).toString() +
         " / " +
-        (snapLeft + colsWide).toString()
+        (snapLeft + colsWide).toString(),
     );
     console.log(
       snapTop.toString() +
@@ -86,7 +86,7 @@ export default function Bloc(props: BlocProps) {
         " / " +
         (snapTop + rowsHigh).toString() +
         " / " +
-        (snapLeft + colsWide).toString()
+        (snapLeft + colsWide).toString(),
     );
     setIsDragging(false);
   };
@@ -126,7 +126,7 @@ export default function Bloc(props: BlocProps) {
       }
       ref={nodeRef}
     >
-      <div className="dragHandle">DRAG ME</div>
+      <div className="dragHandle"></div>
       {props.children}
     </div>
   );

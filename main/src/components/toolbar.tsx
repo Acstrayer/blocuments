@@ -2,10 +2,10 @@ import GridBloc from "../components/gridBloc";
 import SheetBloc from "../components/sheetBloc";
 import TextBloc from "../components/textBloc";
 import { EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
 
 interface toolbarProps {
   addBloc: Function;
-  editor: any;
 }
 
 export default function Toolbar(props: toolbarProps) {
@@ -17,8 +17,7 @@ export default function Toolbar(props: toolbarProps) {
     props.addBloc(<SheetBloc cells={spreadsheetData} dark />);
   };
   const addTextBloc = () => {
-    const editor = props.editor;
-    props.addBloc(<TextBloc editor={editor} />);
+    props.addBloc(<TextBloc />);
   };
 
   return (

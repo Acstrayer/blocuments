@@ -84,6 +84,7 @@ main .Spreadsheet {
 
 #Grid .bloc:hover {
   border: 1px solid white;
+  z-index: 50;
 }
 
 #Grid .bloc.dragging {
@@ -109,16 +110,23 @@ main .Spreadsheet {
   width: var(--col-width);
 }
 
-.bloc {
+#Grid .bloc {
   position: relative;
   z-index: 5;
 }
 
+#Grid .bloc:hover .dragHandle {
+  opacity: 100;
+  z-index: 100;
+}
+
 .dragHandle {
-  background-color: #c3c3c3;
-  width: 200px;
-  margin: auto;
+  background-color: cyan;
+  width: 6px;
+  height: 6px;
+  margin: -6px;
   padding: 4px;
   border: 1 px solid transparent;
-  border-radius: 14px;
+  border-radius: 12px;
+  opacity: 0;
 }
