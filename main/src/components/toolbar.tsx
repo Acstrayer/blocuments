@@ -1,8 +1,6 @@
 import GridBloc from "../components/gridBloc";
 import SheetBloc from "../components/sheetBloc";
 import TextBloc from "../components/textBloc";
-import { EditorContent, useEditor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
 
 interface toolbarProps {
   addBloc: Function;
