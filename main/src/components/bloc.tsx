@@ -23,6 +23,7 @@ export default function Bloc(props: BlocProps) {
   //States
   const [diffX, setDiffX] = useState(0);
   const [diffY, setDiffY] = useState(0);
+  const [scrollPos, setScrollPos] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [coords, setCoords] = useState<Coordinates>({ left: 0, top: 0 });
   const [size, setSize] = useState<Size>({
@@ -34,25 +35,28 @@ export default function Bloc(props: BlocProps) {
   //Click on wrapped object, save original position
   //Save diff for dragend.
   const dragStart = (e: any) => {
+    let blocelem = e.currentTarget.parentElement
     const currentLeft =
-      e.currentTarget.parentElement.getBoundingClientRect().left -
-      e.currentTarget.parentElement.parentElement.getBoundingClientRect().left;
+      blocelem.getBoundingClientRect().left -
+      blocelem.parentElement.getBoundingClientRect().left;
     const currentTop =
-      e.currentTarget.parentElement.getBoundingClientRect().top -
-      e.currentTarget.parentElement.parentElement.getBoundingClientRect().top;
+      blocelem.getBoundingClientRect().top -
+      blocelem.parentElement.getBoundingClientRect().top;
     setDiffX(e.screenX - currentLeft);
     setDiffY(e.screenY - currentTop);
+    setScrollPos(window.scrollY);
     setSize({
-      width: e.currentTarget.parentElement.getBoundingClientRect().width - 2,
-      height: e.currentTarget.parentElement.getBoundingClientRect().height - 2,
+      width: blocelem.getBoundingClientRect().width - 2,
+      height: blocelem.getBoundingClientRect().height - 2,
     });
     setIsDragging(true);
+    document.body.classList.add("no-select");
   };
   //Rerender and position wrapped, dragged object while dragging on cursor
   const dragging = (e: any) => {
     if (isDragging) {
       var left = e.screenX - diffX;
-      var top = e.screenY - diffY;
+      var top = e.screenY + (window.scrollY - scrollPos) - diffY;
       setCoords({
         left: left,
         top: top,
@@ -89,27 +93,27 @@ export default function Bloc(props: BlocProps) {
         (snapLeft + colsWide).toString(),
     );
     setIsDragging(false);
+    document.body.classList.remove("no-select");
   };
 
   useEffect(() => {
+    window.addEventListener("mousemove", dragging);
     let childRef: any = null;
     if (nodeRef.current) {
       childRef = nodeRef.current.firstChild;
       if (childRef) {
         childRef.addEventListener("mousedown", dragStart);
-        document.addEventListener("mouseup", dragEnd);
+        window.addEventListener("mouseup", dragEnd);
       }
     }
     return () => {
       if (childRef) {
         childRef.removeEventListener("mousedown", dragStart);
       }
-      document.removeEventListener("mousemove", dragging);
-      document.removeEventListener("mouseup", dragEnd);
+      window.removeEventListener("mousemove", dragging);
+      window.removeEventListener("mouseup", dragEnd);
     };
   });
-
-  document.addEventListener("mousemove", dragging);
 
   return (
     <div

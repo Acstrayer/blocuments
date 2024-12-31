@@ -87,6 +87,11 @@ main .Spreadsheet {
   z-index: 50;
 }
 
+#Grid .bloc:hover .dragHandle {
+  opacity: 100;
+  z-index: 100;
+}
+
 #Grid .bloc.dragging {
   position: absolute;
   opacity: 75%;
@@ -115,11 +120,6 @@ main .Spreadsheet {
   z-index: 5;
 }
 
-#Grid .bloc:hover .dragHandle {
-  opacity: 100;
-  z-index: 100;
-}
-
 .dragHandle {
   background-color: cyan;
   width: 6px;
@@ -129,4 +129,14 @@ main .Spreadsheet {
   border: 1 px solid transparent;
   border-radius: 12px;
   opacity: 0;
+}
+
+.no-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard syntax */
+}
+
+.hidden {
+  display: none;
 }

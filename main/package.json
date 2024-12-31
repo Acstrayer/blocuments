@@ -7,7 +7,7 @@
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "@tiptap/pm": "^2.10.4",
-    "@tiptap/react": "^2.10.4",
+    "@tiptap/react": "^2.11.0",
     "@tiptap/starter-kit": "^2.10.4",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
