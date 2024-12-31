@@ -98,17 +98,17 @@ export default function Bloc(props: BlocProps) {
 
   useEffect(() => {
     window.addEventListener("mousemove", dragging);
-    let childRef: any = null;
+    let dragHandle: any = null;
     if (nodeRef.current) {
-      childRef = nodeRef.current.firstChild;
-      if (childRef) {
-        childRef.addEventListener("mousedown", dragStart);
+      dragHandle = nodeRef.current.firstChild;
+      if (dragHandle) {
+        dragHandle.addEventListener("mousedown", dragStart);
         window.addEventListener("mouseup", dragEnd);
       }
     }
     return () => {
-      if (childRef) {
-        childRef.removeEventListener("mousedown", dragStart);
+      if (dragHandle) {
+        dragHandle.removeEventListener("mousedown", dragStart);
       }
       window.removeEventListener("mousemove", dragging);
       window.removeEventListener("mouseup", dragEnd);
@@ -130,7 +130,16 @@ export default function Bloc(props: BlocProps) {
       }
       ref={nodeRef}
     >
-      <div className="dragHandle"></div>
+      <div className="dragHandle">
+        <div className="resizeNode topEdge"></div>
+        <div className="resizeNode topLeft"></div>
+        <div className="resizeNode topRight"></div>
+        <div className="resizeNode leftEdge"></div>
+        <div className="resizeNode rightEdge"></div>
+        <div className="resizeNode bottomLeft"></div>
+        <div className="resizeNode bottomRight"></div>
+        <div className="resizeNode bottomEdge"></div>
+      </div>
       {props.children}
     </div>
   );
