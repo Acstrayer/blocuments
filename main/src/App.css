@@ -92,6 +92,11 @@ main .Spreadsheet {
   z-index: 100;
 }
 
+#Grid .bloc:hover .resizeNode {
+  opacity: 100;
+  z-index: 100;
+}
+
 #Grid .bloc.dragging {
   position: absolute;
   opacity: 75%;
@@ -124,11 +129,72 @@ main .Spreadsheet {
   background-color: cyan;
   width: 6px;
   height: 6px;
-  margin: -6px;
   padding: 4px;
   border: 1 px solid transparent;
   border-radius: 12px;
   opacity: 0;
+}
+
+.resizeNode {
+  background-color: blue;
+  width: 6px;
+  height: 6px;
+  padding: 4px;
+  border: 1 px solid transparent;
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.resizeNode.topEdge {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-8px, -8px);
+}
+
+.resizeNode.topLeft {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+}
+
+.resizeNode.topRight {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+.resizeNode.leftEdge {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-8px, -8px);
+}
+
+.resizeNode.rightEdge {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(8px, -8px);
+}
+
+.resizeNode.bottomLeft {
+  position: absolute;
+  bottom: -8px;
+  left: -8px;
+}
+
+.resizeNode.bottomRight {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+}
+
+.resizeNode.bottomEdge {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-8px, 8px);
 }
 
 .no-select {

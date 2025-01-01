@@ -35,7 +35,7 @@ export default function Bloc(props: BlocProps) {
   //Click on wrapped object, save original position
   //Save diff for dragend.
   const dragStart = (e: any) => {
-    let blocelem = e.currentTarget.parentElement
+    let blocelem = e.currentTarget.parentElement;
     const currentLeft =
       blocelem.getBoundingClientRect().left -
       blocelem.parentElement.getBoundingClientRect().left;
@@ -96,13 +96,14 @@ export default function Bloc(props: BlocProps) {
     document.body.classList.remove("no-select");
   };
 
+  //Handle dragging the bloc around
   useEffect(() => {
-    window.addEventListener("mousemove", dragging);
     let dragHandle: any = null;
     if (nodeRef.current) {
       dragHandle = nodeRef.current.firstChild;
       if (dragHandle) {
         dragHandle.addEventListener("mousedown", dragStart);
+        window.addEventListener("mousemove", dragging);
         window.addEventListener("mouseup", dragEnd);
       }
     }
@@ -113,6 +114,20 @@ export default function Bloc(props: BlocProps) {
       window.removeEventListener("mousemove", dragging);
       window.removeEventListener("mouseup", dragEnd);
     };
+  });
+
+  //Handle resizing the bloc
+  useEffect(() => {
+    let resizeNodes: any = null;
+    if (nodeRef.current) {
+      resizeNodes = nodeRef.current.firstChild;
+      if (resizeNodes) {
+        resizeNodes.addEventListener("mousedown", dragStart);
+        window.addEventListener("mousemove", dragging);
+        window.addEventListener("mouseup", dragEnd);
+      }
+    }
+    return () => {};
   });
 
   return (
